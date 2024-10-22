@@ -7,7 +7,7 @@ class ShortenURLForm(forms.ModelForm):
         fields = '__all__'
         
         label = {
-            'url': 'original_url',
+            'original_url': 'original_url',
             'short_code': 'Short Code',
         }
         
