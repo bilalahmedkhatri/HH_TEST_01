@@ -10,6 +10,9 @@ def generate_short_code(length=6):
 
 class ShortenedURL(models.Model):
     original_url = models.URLField(max_length=2048)
+    
+    # def get_name(self, ):
+    
     short_code = models.CharField(max_length=10, unique=True, default=generate_short_code)
     created_at = models.DateTimeField(auto_now_add=True)
 

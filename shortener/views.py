@@ -8,10 +8,10 @@ class ShortenURLView(View):
     template_name = 'shorten.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class()
-        return render(request, self.template_name, {'form': form})
+        return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
+        print("result : ", request.POST)
         form = self.form_class(request.POST)
         if form.is_valid():
             shortened_url = form.save()
