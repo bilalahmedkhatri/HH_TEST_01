@@ -11,18 +11,18 @@
             <p class="h1 text-center mt-3 mb-4 text-primary">
               URL shrink
             </p>      
-            <form method="post" action="shorten_url">
+            <form method="post">
               {% csrf_token %}
               <div class="form-floating mt-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">URL</label>
+                <input type="email" class="form-control" id="original_url" placeholder="name@example.com">
+                <label for="original_url">URL</label>
               </div>
               <div class="d-grid gap-3 col-6 mx-auto m-4">
-                <button class="btn btn-primary" type="submit">Shrink</button>
+                <input class="btn btn-primary" type="submit" value="Submit">
               </div>
-            </div>
-          </form>
-          {% if Link_URL %}
+            </form>
+          </div>
+          {% if Link_URL  %}
           <hr class="my-1">
           <div class="m-5" style="text-align:center">
             <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{{ Link_URL.address }}">

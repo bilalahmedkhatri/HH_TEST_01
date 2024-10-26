@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     
     # API App
     'shortener.apps.ShortenerConfig',
-    'API_ACCESS',
 ]
 
 MIDDLEWARE = [
