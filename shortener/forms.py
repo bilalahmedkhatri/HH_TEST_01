@@ -1,19 +1,17 @@
 from django import forms
+from django.core import validators
 from .models import ShortenedURL
 
 class ShortenURLForm(forms.ModelForm):
     class Meta:
         model = ShortenedURL
-        fields = '__all__'
+        fields = ['original_url']
         
         label = {
-            'original_url': 'original_url',
-            'short_code': 'Short Code',
+            'for': 'original_url',
         }
         
         widget = {
-            'url' : forms.TextInput(attrs={'placeholder': 'URL'}),
-            'short_code' : forms.TextInput(attrs={'readonly': True}),
-            
+            'original_url' : forms.TextInput(attrs={'class': 'form-control'}),
         }
         

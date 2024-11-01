@@ -10,11 +10,11 @@
           <div class="card-body py-4 px-4 px-md-5">
             <p class="h1 text-center mt-3 mb-4 text-primary">
               URL shrink
-            </p>      
+            </p>
             <form method="post">
               {% csrf_token %}
               <div class="form-floating mt-3">
-                <input type="email" class="form-control" id="original_url" placeholder="name@example.com">
+                <input type="url" class="form-control" name="original_url" id="original_url" required>
                 <label for="original_url">URL</label>
               </div>
               <div class="d-grid gap-3 col-6 mx-auto m-4">
@@ -22,16 +22,9 @@
               </div>
             </form>
           </div>
-          {% if Link_URL  %}
-          <hr class="my-1">
-          <div class="m-5" style="text-align:center">
-            <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="{{ Link_URL.address }}">
-              Google
-              {{ Link_URL }}
-            </a>
-          </div>
+          {% if Link_URL %}
+            <a href="{{ request.META.HTTP_ORIGIN }}/{{Link_URL.short_code}}">{{Link_URL}}</a>
           {% endif %}
-          </div>
         </div>
       </div>
     </div>
