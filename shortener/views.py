@@ -27,15 +27,16 @@ class RedirectToOriginalView(View):
         return redirect(shortened_url.original_url)
     
 
-def get_URL(request):
+def create_short_url(request):
     
     if request.method == 'POST':
-        get_data = ShortenURLForm(request.POST)
-        if get_data.is_valid():
-            get_data = get_data.save()
-            # print('data : ', x)
-        print(get_data)
+        get_data_form = ShortenURLForm(request.POST)
+        if get_data_form.is_valid():
+            short_url = get_data_form.save()
+            print('short_url : ', short_url)
+            request.session['short_url'] = short_url.short_code
+            return redirect("create_short_url")
     else:
-        get_data = ShortenURLForm()
-    context = {'Link_URL': get_data}
-    return render(request, 'shorten.html', context)
+        get_data_form = ShortenURLForm()
+        # del request.session['short_url']
+    return render(request, 'shorten.html', {'Link_URL': get_data_form})

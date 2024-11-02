@@ -9,5 +9,5 @@ urlpatterns = [
     
     
     # function base example
-    path('', views.get_URL, name='get_url'),
+    path('', views.create_short_url, name='create_short_url'),
 ]

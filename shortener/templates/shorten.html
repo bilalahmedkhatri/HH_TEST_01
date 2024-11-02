@@ -22,8 +22,10 @@
               </div>
             </form>
           </div>
-          {% if Link_URL %}
-            <a href="{{ request.META.HTTP_ORIGIN }}/{{Link_URL.short_code}}">{{Link_URL}}</a>
+          {% if 'short_url' in request.session %}
+            <a href="{{ request.META.HTTP_ORIGIN }}/{{ request.session.short_url }}">{{ request.META.HTTP_ORIGIN }}/{{ request.session.short_url }}</a>
+          {% else %}
+            <p>No URL shortened yet</p>
           {% endif %}
         </div>
       </div>
