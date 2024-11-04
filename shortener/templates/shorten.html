@@ -2,34 +2,15 @@
 {% load static %}
 
 {% block content %}
-<section class="vh-100">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col">
-        <div class="card" id="list1" style="border-radius: .75rem; background-color: #eff1f2;">
-          <div class="card-body py-4 px-4 px-md-5">
-            <p class="h1 text-center mt-3 mb-4 text-primary">
-              URL shrink
-            </p>
-            <form method="post">
-              {% csrf_token %}
-              <div class="form-floating mt-3">
-                <input type="url" class="form-control" name="original_url" id="original_url" required>
-                <label for="original_url">URL</label>
-              </div>
-              <div class="d-grid gap-3 col-6 mx-auto m-4">
-                <input class="btn btn-primary" type="submit" value="Submit">
-              </div>
-            </form>
-          </div>
-          {% if 'short_url' in request.session %}
-            <a href="{{ request.META.HTTP_ORIGIN }}/{{ request.session.short_url }}">{{ request.META.HTTP_ORIGIN }}/{{ request.session.short_url }}</a>
-          {% else %}
-            <p>No URL shortened yet</p>
-          {% endif %}
-        </div>
-      </div>
+  <p class="h1 text-center mt-3 mb-4 text-primary">URL shrink</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-floating mt-3">
+      <input type="url" class="form-control" name="original_url" id="original_url" autocomplete="off" />
+      <label for="original_url">URL</label>
     </div>
-  </div>
-</section>
+    <div class="d-grid gap-3 col-6 mx-auto m-4">
+      <input class="btn btn-primary" type="submit" value="Submit" />
+    </div>
+  </form>
 {% endblock %}

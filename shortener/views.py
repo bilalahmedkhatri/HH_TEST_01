@@ -21,22 +21,24 @@ from .forms import ShortenURLForm
 #             return render(request, self.template_name, {'shortened_url': shortened_url})
 #         return render(request, self.template_name, {'form': form})
 
-class RedirectToOriginalView(View):
-    def get(self, request, short_code, *args, **kwargs):
-        shortened_url = get_object_or_404(ShortenedURL, short_code=short_code)
-        return redirect(shortened_url.original_url)
-    
 
 def create_short_url(request):
-    
     if request.method == 'POST':
         get_data_form = ShortenURLForm(request.POST)
         if get_data_form.is_valid():
             short_url = get_data_form.save()
-            print('short_url : ', short_url)
-            request.session['short_url'] = short_url.short_code
-            return redirect("create_short_url")
+            main_domain = request.META.get('HTTP_REFERER')
+            link = f"{main_domain}{short_url}"
+            return render(request, 'success.html', {'link': link})
+
+        else:
+            return render(request, 'failed.html')
     else:
         get_data_form = ShortenURLForm()
-        # del request.session['short_url']
     return render(request, 'shorten.html', {'Link_URL': get_data_form})
+
+
+class RedirectToOriginalView(View):
+    def get(self, request, short_code, *args, **kwargs):
+        shortened_url = get_object_or_404(ShortenedURL, short_code=short_code)
+        return redirect(shortened_url.original_url)
