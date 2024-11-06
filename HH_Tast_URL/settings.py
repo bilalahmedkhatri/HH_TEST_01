@@ -221,4 +221,4 @@ LOGGING = {
 }
 
 # Explicitly configure logging
-logging.config.dictConfig(LOGGING)
+# logging.config.dictConfig(LOGGING)
