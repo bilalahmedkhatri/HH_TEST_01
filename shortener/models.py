@@ -16,7 +16,7 @@ class ShortenedURL(models.Model):
     original_url = models.URLField(max_length=1000)
     status = models.PositiveIntegerField(choices=STATUS, default=0)
     created_at = models.DateTimeField(default=timezone.now, editable=False)
-    short_code = models.CharField(max_length=10, unique=True, default=generate_short_code)
+    short_code = models.CharField(max_length=6, unique=True, default=generate_short_code)
 
     def __str__(self):
         return self.short_code

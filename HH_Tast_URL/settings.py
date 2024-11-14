@@ -1,6 +1,5 @@
 from pathlib import Path
 import os 
-import logging
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -131,69 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ['BASIC_FORMAT', 'BufferingFormatter', 'CRITICAL', 'DEBUG', 'ERROR', 'FATAL', 'FileHandler', 'Filter', 'Filterer', 'Formatter', 'GenericAlias', 'Handler', 'INFO', 'LogRecord', 'Logger', 'LoggerAdapter', 'Manager', 'NOTSET', 'NullHandler', 'PercentStyle', 'PlaceHolder', 'RootLogger', 'StrFormatStyle', 'StreamHandler', 'StringTemplateStyle', 'Template', 'WARN', 'WARNING', '_STYLES', '_StderrHandler', '__all__', '__author__', '__builtins__', '__cached__', '__date__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__', '__status__', '__version__', '_acquireLock', '_addHandlerRef', '_checkLevel', '_defaultFormatter', '_defaultLastResort', '_handlerList', '_handlers', '_is_internal_frame', '_levelToName', '_lock', '_logRecordFactory', '_loggerClass', '_nameToLevel', '_register_at_fork_reinit_lock', '_releaseLock', '_removeHandlerRef', '_showwarning', '_srcfile', '_startTime', '_str_formatter', '_warnings_showwarning', 'addLevelName', 'atexit', 'basicConfig', 'captureWarnings', 'collections', 'critical', 'currentframe', 'debug', 'disable', 'error', 'exception', 'fatal', 'getLevelName', 'getLevelNamesMapping', 'getLogRecordFactory', 'getLogger', 'getLoggerClass', 'info', 'io', 'lastResort', 'log', 'logMultiprocessing', 'logProcesses', 'logThreads', 'makeLogRecord', 'os', 'raiseExceptions', 're', 'root', 'setLogRecordFactory', 'setLoggerClass', 'shutdown', 'sys', 'threading', 'time', 'traceback', 'warn', 'warning', 'warnings', 'weakref']
 """
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'filters': {
-#         'require_debug_true': {
-#             '()': 'django.utils.log.RequireDebugTrue',
-#         },
-#         'require_debug_false': {
-#             '()': 'django.utils.log.RequireDebugFalse',
-#         },
-#     },
-#     'formatters': {
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'simple'
-#         },
-#         'file': {
-#             'level': 'INFO',
-#             'filters': ['require_debug_false'],
-#             'class': 'logging.FileHandler',
-#             'filename': os.path.join(LOG_DIR, 'django.log'),
-#             'formatter': 'verbose'
-#         },
-#         'debug_file': {
-#             'level': 'DEBUG',
-#             'filters': ['require_debug_true'],
-#             'class': 'logging.FileHandler',
-#             'filename': os.path.join(LOG_DIR, 'debug.log'),
-#             'formatter': 'verbose'
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['console', 'file'],
-#             'level': 'INFO',
-#             'propagate': True,
-#         },
-#         'django.server': {
-#             'handlers': ['console', 'file'],
-#             'level': 'INFO',
-#             'propagate': False,
-#         },
-#         'shortener': {  # Replace with your app name
-#             'handlers': ['console', 'file', 'debug_file'],
-#             'level': 'DEBUG',
-#             'propagate': False,
-#         },
-#     },
-# }
-
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -202,23 +138,28 @@ LOGGING = {
             'format': '{levelname} {asctime} {module} {message}',
             'style': '{',
         },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
     },
     'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, 'debug.log'),
-            'formatter': 'verbose'
+            'filename': os.path.join(LOG_DIR, 'views.log'),
+            'formatter': 'verbose',
         },
     },
     'loggers': {
-        'shortener': {  # Replace with your app name
+        'shortener_logs': {  # Replace 'myapp' with your actual app name
             'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': False,
+            'level': 'INFO',
+            # 'propagate': False,
         },
-    }
+    },
 }
-
-# Explicitly configure logging
-# logging.config.dictConfig(LOGGING)
