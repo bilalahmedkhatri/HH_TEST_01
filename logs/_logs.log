@@ -1,0 +1,21 @@
+WARNING 2024-11-20 09:25:05,782 views Form validation failed.
+WARNING 2024-11-20 09:28:49,411 views Form validation failed.
+ERROR 2024-11-20 09:30:56,313 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:30:56,313 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:33:16,026 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:33:16,026 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:37:57,826 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:37:57,826 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:39:51,434 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:39:51,434 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:45:09,057 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:45:09,057 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:46:09,609 forms Invalid URL: must start with http:// or https://
+ERROR 2024-11-20 09:46:09,609 forms Invalid URL: must start with http:// or https://
+WARNING 2024-11-24 19:29:11,021 forms this URL is risky! found vulnerabilities
+WARNING 2024-11-24 19:29:11,021 forms request not from http or https
+WARNING 2024-11-24 19:29:37,735 forms this URL is risky! found vulnerabilities
+WARNING 2024-11-24 19:29:37,737 forms request not from http or https
+WARNING 2024-11-24 19:31:09,929 forms request not from http or https
+WARNING 2024-12-19 00:41:28,690 forms request not from http or https
+WARNING 2024-12-19 00:41:49,398 forms request not from http or https

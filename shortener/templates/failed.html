@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <p class="h1 text-center mt-3 my-4 text-danger">No URL was generated.</p>
-  <div class="d-grid gap-3 col-2 mx-auto my-9">
-    <a href="/" class="btn btn-success">Generate link</a>
-  </div>
+  {% if error %}
+    <p class="h1 text-center mt-3 my-4 text-danger">{{error}}.</p>
+    <div class="d-grid gap-3 col-2 mx-auto my-9">
+      <a href="/" class="btn btn-success">Generate link</a>
+    </div>
+  {% endif %}
 {% endblock %}

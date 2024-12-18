@@ -5,3 +5,7 @@ media/
 staticfiles/
 .cache
 hh_test/
+logs/
+db.sqlite3
+.vscode
+.env

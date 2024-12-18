@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import ShortenedURL
+from .models import ShortenedURLModel
 # Register your models here.
 
-@admin.register(ShortenedURL)
-class ShortenedURLAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'short_code', 'original_url', 'status', 'created_at')
+
+@admin.register(ShortenedURLModel)
+class ShortenedURLModelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'short_code', 'url_bytes',
+                    'original_url', 'created_at')
